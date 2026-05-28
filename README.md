@@ -36,11 +36,15 @@ A Spring Boot web application for managing customer data with user authenticatio
    CREATE DATABASE customer_db;
    ```
 
-2. Update `src/main/resources/application.properties` with your MySQL credentials:
-   ```properties
-   spring.datasource.username=your_username
-   spring.datasource.password=your_password
-   ```
+2. Create a local `.env` file in the project root with your MySQL and app login credentials:
+  ```properties
+  DB_USERNAME=your_mysql_username
+  DB_PASSWORD=your_mysql_password
+  APP_USERNAME=your_app_username
+  APP_PASSWORD=your_app_password
+  ```
+
+3. If you prefer environment variables instead of a `.env` file, export the same names before running the app.
 
 ### Option 2: H2 Database (Development/Testing)
 
@@ -59,7 +63,7 @@ cd your-project-directory
 
 ### 2. Configure Database
 
-Edit `src/main/resources/application.properties` for your database setup.
+Edit `.env` or set environment variables for your database and login setup.
 
 ### 3. Build and Run
 
@@ -74,9 +78,7 @@ mvn spring-boot:run
 ### 4. Access the Application
 
 - **URL**: http://localhost:8080
-- **Login Credentials**:
-  - Username: `admin`
-  - Password: `password`
+- **Login Credentials**: use the values configured in `APP_USERNAME` and `APP_PASSWORD`
 
 ## Application Structure
 
@@ -109,7 +111,7 @@ src/
 
 ### 1. Login
 - Navigate to http://localhost:8080
-- Use credentials: admin/password
+- Use the credentials configured in your local environment
 - Redirected to dashboard after successful login
 
 ### 2. Dashboard
@@ -193,7 +195,6 @@ The application includes Spring Boot DevTools for automatic restart on code chan
 
 ## Security Notes
 
-- Default credentials are for development only
 - In production, use proper user management
 - Configure HTTPS for production deployment
 - Use environment variables for sensitive configuration
