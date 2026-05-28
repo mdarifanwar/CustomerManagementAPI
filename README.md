@@ -1,4 +1,4 @@
-# Customer Data Entry and Display System
+# Customer Management API and Display System
 
 A Spring Boot web application for managing customer data with user authentication, data entry forms, and database integration.
 
